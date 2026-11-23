@@ -1,0 +1,151 @@
+{
+  "project_name": "FactoryOS",
+  "tagline": "Your Entire Factory. One Intelligent Platform.",
+  "app_type": "enterprise_dashboard_saas",
+  "theme_preference": "dark_navy_with_light_surfaces",
+  "instructions_to_main_agent": [
+    "Build a commercially ready, enterprise-grade Industrial Operating System called FactoryOS tailored for general manufacturing factory owners.",
+    "Do NOT show a login gate: default landing route '/' immediately enters the main Factory Owner workspace with Demo Owner profile ('Marcus Vance - Managing Director, Apex Precision Engineering').",
+    "Display a prominent 'Demonstration Mode' / 'Live Simulation' pill badge in the header/topbar with an info tooltip explaining all metrics and telemetry are active simulated demonstration data.",
+    "Include full navigation sidebar with 10 sections: Overview (Dashboard), Orders, Attendance, Production, Machines, Inventory, Schedule, AI Assistant, Reports, Settings.",
+    "Implement simulated real-time telemetry (simulated updates/polling toggle, live machine status pulses, alerts ticker).",
+    "Add responsive desktop, tablet, and mobile layouts with collapsible sidebar, crisp mobile sheet drawer, and sticky top header with search & quick actions.",
+    "Every interactive button, tab, search input, filter, modal trigger, and row action MUST include a data-testid attribute in kebab-case."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Never use generic centered layouts or unstyled default HTML select/inputs. Use shadcn/ui components (Select, Dialog, Sheet, Tabs, Table, Badge, Button, Input).",
+    "Maintain high APCA/WCAG contrast: dark navy surfaces (#0B132B / #0F172A) must have crisp white (#F8FAFC) headers and muted slate (#94A3B8) text; pure white cards must use deep slate (#0F172A) headers and slate (#475569) body.",
+    "Use subtle industrial emerald green accents (#10B981 / #059669) for positive KPIs, active machine badges, and primary action highlights. Avoid vibrating neon greens.",
+    "Provide CSV export download functionality on the Reports tab using real client-side Blob generation with sensible mock datasets.",
+    "In the AI Assistant tab, present a polished interactive chat window with factory prompt chips, message history, text input, audio mic toggle icon, and a clear enterprise status pill stating 'AI Engine: Standby (Integration Sandbox)' with helpful diagnostic guidance and simulated factory query assistant responses."
+  ],
+  "typography": {
+    "font_family_heading": "Plus Jakarta Sans Variable, sans-serif",
+    "font_family_body": "Plus Jakarta Sans Variable, sans-serif",
+    "font_family_mono": "IBM Plex Mono, monospace",
+    "font_import": "@import \"@fontsource-variable/plus-jakarta-sans\";\n@import \"@fontsource/ibm-plex-mono\";",
+    "scale_px": {
+      "display": 48,
+      "h1": 36,
+      "h2": 28,
+      "h3": 20,
+      "body": 16,
+      "caption": 14
+    },
+    "rules": {
+      "headings": "font-bold tracking-tight text-slate-900 dark:text-slate-50",
+      "stats_numbers": "font-semibold tracking-tight font-mono text-2xl lg:text-3xl text-slate-900 dark:text-white",
+      "labels_overlines": "text-xs font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400",
+      "body_copy": "text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300"
+    }
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page_canvas",
+        "kind": "solid",
+        "bg": "#F8FAFC",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#475569",
+        "roles": {
+          "border": "#E2E8F0",
+          "link": "#0284C7",
+          "success": "#059669",
+          "warning": "#D97706",
+          "danger": "#DC2626"
+        }
+      },
+      {
+        "name": "sidebar_dark_navy",
+        "kind": "solid",
+        "bg": "#0B132B",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "active_item_bg": "#1C2541",
+          "active_item_text": "#38BDF8",
+          "active_item_indicator": "#10B981",
+          "border": "#1E293B"
+        }
+      },
+      {
+        "name": "card_surface",
+        "kind": "solid",
+        "bg": "#FFFFFF",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#64748B",
+        "roles": {
+          "card_border": "#E2E8F0",
+          "subtle_hover": "#F1F5F9"
+        }
+      },
+      {
+        "name": "metric_card_highlight",
+        "kind": "solid",
+        "bg": "#F0FDF4",
+        "on_bg": "#064E3B",
+        "on_bg_muted": "#047857",
+        "roles": {
+          "border": "#BBF7D0",
+          "accent_icon": "#10B981"
+        }
+      },
+      {
+        "name": "header_surface",
+        "kind": "glass",
+        "contrast_against": "#FFFFFF",
+        "guarantee": "backdrop-blur-md bg-white/90 border-b border-slate-200/80 shadow-xs",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#64748B"
+      },
+      {
+        "name": "simulation_pill",
+        "kind": "solid",
+        "bg": "#ECFDF5",
+        "on_bg": "#065F46",
+        "on_bg_muted": "#047857"
+      }
+    ],
+    "accent": "#059669",
+    "on_accent": "#FFFFFF",
+    "secondary_accent": "#0284C7",
+    "on_secondary_accent": "#FFFFFF"
+  },
+  "entry_surfaces": {
+    "/": "Enterprise Industrial Control Hub: persistent deep navy collapsable sidebar left, sticky crystal glass header top with simulated pulse indicator, full-bleed high-density Bento command deck right."
+  },
+  "grids_and_layouts": {
+    "app_shell": "flex h-screen w-screen overflow-hidden bg-slate-50 text-slate-900 font-sans antialiased",
+    "sidebar_layout": "w-64 shrink-0 bg-[#0B132B] text-slate-100 flex flex-col justify-between border-r border-slate-800 transition-all duration-300",
+    "main_content_layout": "flex-1 flex flex-col min-w-0 overflow-y-auto bg-slate-50/80",
+    "dashboard_grid": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 lg:p-6",
+    "bento_section_grid": "grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 lg:p-6",
+    "chart_split_grid": "col-span-12 lg:col-span-8 flex flex-col gap-6",
+    "telemetry_feed_grid": "col-span-12 lg:col-span-4 flex flex-col gap-6"
+  },
+  "component_breakdown": {
+    "Sidebar": "frontend/src/components/Sidebar.tsx — enterprise collapsible navigation with active route highlights, factory switch dropdown, and owner profile card.",
+    "Header": "frontend/src/components/Header.tsx — sticky navigation bar with search bar (Ctrl+K), factory status badge (Live Simulated), quick notifications popover, date range picker, and shift status.",
+    "OverviewView": "frontend/src/components/views/OverviewView.tsx — 4 primary KPI cards (Orders, Attendance, Machines, Production), target achievement gauge, Recharts production trend area chart, machine live telemetry grid, real-time alert feed.",
+    "OrdersView": "frontend/src/components/views/OrdersView.tsx — Status metrics banner, search/status filter, rich interactive orders table, sheet slideout with full bill of materials, dispatch logs and customer details.",
+    "AttendanceView": "frontend/src/components/views/AttendanceView.tsx — Shift summary, department-wise donut chart, live punch-in/out log, employee directory with filterable tags and manual attendance log dialog.",
+    "ProductionView": "frontend/src/components/views/ProductionView.tsx — Department production charts, customizable measurement units (Units, Tons, Batches, Meters), rejection rate bar chart, efficiency KPIs, planned vs actual timeline.",
+    "MachinesView": "frontend/src/components/views/MachinesView.tsx — Machine directory cards with dynamic health meters, live simulated status pulses (Running, Idle, Maintenance, Offline), maintenance history timeline, manual maintenance trigger dialog.",
+    "InventoryView": "frontend/src/components/views/InventoryView.tsx — Raw materials vs Finished goods tabs, low-stock threshold alert cards, reorder dialog, supplier directory, stock intake modal.",
+    "ScheduleView": "frontend/src/components/views/ScheduleView.tsx — Daily/Weekly/Monthly calendar toggle view, maintenance shifts and order delivery milestones, event creation/edit modal with priority and participant assignees.",
+    "AiAssistantView": "frontend/src/components/views/AiAssistantView.tsx — Modern industrial LLM interface with prompt chips, simulated diagnostic responses, audio wave indicator, factory knowledge base search, and clear integration status.",
+    "ReportsView": "frontend/src/components/views/ReportsView.tsx — Multi-metric analytical reporting center (Production, OEE, Downtime, Attendance), date filter, interactive Recharts preview, and instant CSV export generator.",
+    "SettingsView": "frontend/src/components/views/SettingsView.tsx — Factory configuration, shift timetable definitions, alert threshold sliders, production unit manager, and simulated data reset tools."
+  },
+  "motion_and_interactions": {
+    "hover_lift": "hover:-translate-y-0.5 transition-transform duration-200 ease-out hover:shadow-md",
+    "fade_in": "animate-in fade-in-50 duration-300",
+    "pulsing_dot": "relative flex h-2.5 w-2.5 mr-2 -> animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75",
+    "tab_transition": "transition-all duration-200"
+  },
+  "accessibility": {
+    "color_contrast": "All text tokens meet 4.5:1 minimum APCA/WCAG ratio. Slate-600 on Slate-50 = 7.1:1. Slate-100 on Navy #0B132B = 14.2:1.",
+    "focus_states": "focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 outline-hidden",
+    "screen_readers": "Aria attributes on all icon-only buttons, modal dialogs, and simulated status indicators."
+  }
+}
